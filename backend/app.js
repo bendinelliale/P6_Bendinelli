@@ -17,7 +17,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
   });
-mongoose.connect('mongodb+srv://abendinelli:amb100292@cluster0.zamo6.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(process.env.DbPath)
   .then(() => {
     console.log('Successfully connected to MongoDB Atlas!');
   })

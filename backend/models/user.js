@@ -8,8 +8,10 @@ var validateEmail = function(email) {
 };
 
 const userSchema = mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true, validate: [validateEmail, 'Valid email address required'], match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'] }
+  email: { type: String, required: true, unique: true  ,
+    validate: [validateEmail, 'Valid email address required'],
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'] },
+  password: { type: String, required: true }
 });
 
 userSchema.plugin(uniqueValidator);
